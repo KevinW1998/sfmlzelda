@@ -7,8 +7,9 @@
 #pragma comment(lib, "gdi32.lib")  
 #endif // SFML_STATIC
 
+#include "stdafx.h"
 
-#include <SFML/Graphics.hpp>
+
 
 int main()
 {
