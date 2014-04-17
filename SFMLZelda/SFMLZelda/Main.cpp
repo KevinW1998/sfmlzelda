@@ -8,14 +8,14 @@
 #endif // SFML_STATIC
 
 #include "stdafx.h"
-
+#include "Game.h"
 
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
-	sf::CircleShape shape(100.f);
-	shape.setFillColor(sf::Color::Green);
+	sf::RenderWindow window(sf::VideoMode(720, 480), "SFML works!");
+	window.setFramerateLimit(60);
+	Game g(&window);
 
 	while (window.isOpen())
 	{
@@ -26,9 +26,9 @@ int main()
 				window.close();
 		}
 
-		window.clear();
-		window.draw(shape);
-		window.display();
+
+		g.RunLoop();
+
 	}
 
 	return 0;
