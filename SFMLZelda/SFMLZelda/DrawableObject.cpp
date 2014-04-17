@@ -23,7 +23,7 @@ DrawableObject::~DrawableObject()
 {
 }
 
-void DrawableObject::Render(sf::RenderWindow* renderer)
+void DrawableObject::OnRender(sf::RenderWindow* renderer)
 {
 	sf::RectangleShape sh(sf::Vector2f(16,16));
 	sh.setFillColor(sf::Color::Black);

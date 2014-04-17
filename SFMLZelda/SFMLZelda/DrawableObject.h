@@ -11,7 +11,7 @@ public:
 	DrawableObject(int x, int y);
 	~DrawableObject();
 
-	virtual void Render(sf::RenderWindow* renderer);
+	virtual void OnRender(sf::RenderWindow* renderer);
 
 	void setVisible(bool isVisible);
 	bool isVisible();

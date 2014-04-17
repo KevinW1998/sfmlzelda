@@ -35,7 +35,7 @@ void Game::RunLoop()
 void Game::Update()
 {
 	CheckKeyState();
-	sampleEntity->Update();
+	sampleEntity->OnUpdate();
 }
 
 void Game::Render()
@@ -45,56 +45,80 @@ void Game::Render()
 
 void Game::CheckKeyState()
 {
-	if(UP && !isUpPressed){
-		//Press Up
-		sampleEntity->setDir(Entity::DIR_NORTH);
-		sampleEntity->setAnimActive(true);
 
-		isUpPressed = true;
-	}else if(!UP && isUpPressed){
-		//Release Up
-		sampleEntity->setAnimActive(false);
-
-		isUpPressed = false;
+	if (!(RIGHT && LEFT)){
+		if (RIGHT && !isRightPressed){
+			//Press Right
+			isRightPressed = true;
+		}else if (!RIGHT && isRightPressed){
+			//Release Right
+			isRightPressed = false;
+		}
+		if (LEFT && !isLeftPressed){
+			//Press Left			
+			isLeftPressed = true;
+		}
+		else if (!LEFT && isLeftPressed){
+			//Release Left
+			isLeftPressed = false;
+		}
+	}else{
+		isRightPressed = false;
+		isLeftPressed = false;
 	}
 
-	if(DOWN && !isDownPressed){
-		//Press Down
-		sampleEntity->setDir(Entity::DIR_SOUTH);
-		sampleEntity->setAnimActive(true);
+	if (!(UP && DOWN)){
+		if (UP && !isUpPressed){
+			//Press Up			
+			isUpPressed = true;
+		}
+		else if (!UP && isUpPressed){
+			//Release Up
+			isUpPressed = false;
+		}
 
-		isDownPressed = true;
-	}else if(!DOWN && isDownPressed){
-		//Release Down
-		sampleEntity->setAnimActive(false);
-
+		if (DOWN && !isDownPressed){
+			//Press Down			
+			isDownPressed = true;
+		}
+		else if (!DOWN && isDownPressed){
+			//Release Down
+			isDownPressed = false;
+		}
+	}else{
+		isUpPressed = false;
 		isDownPressed = false;
 	}
 
-	if(RIGHT && !isRightPressed){
-		//Press Right
-		sampleEntity->setDir(Entity::DIR_EAST);
+	//Key Pressing Check Loop
+	if (isUpPressed || isRightPressed || isDownPressed || isLeftPressed){
 		sampleEntity->setAnimActive(true);
-
-		isRightPressed = true;
-	}else if(!RIGHT && isRightPressed){
-		//Release Right
+	}else{
 		sampleEntity->setAnimActive(false);
-
-		isRightPressed = false;
 	}
 
-	if(LEFT && !isLeftPressed){
-		//Press Left
+
+	if (isUpPressed){
+		sampleEntity->OnWalkUp();
+	}else if (isDownPressed){
+		sampleEntity->OnWalkDown();
+	}
+
+	if (isLeftPressed){
+		sampleEntity->OnWalkLeft();
+	}else if (isRightPressed){
+		sampleEntity->OnWalkRight();
+	}
+	
+
+	if (isLeftPressed){
 		sampleEntity->setDir(Entity::DIR_WEST);
-		sampleEntity->setAnimActive(true);
-
-		isLeftPressed = true;
-	}else if(!LEFT && isLeftPressed){
-		//Release Left
-		sampleEntity->setAnimActive(false);
-
-		isLeftPressed = false;
+	}else if (isRightPressed){
+		sampleEntity->setDir(Entity::DIR_EAST);
+	}else if (isUpPressed){
+		sampleEntity->setDir(Entity::DIR_NORTH);
+	}else if (isDownPressed){
+		sampleEntity->setDir(Entity::DIR_SOUTH);
 	}
 }
 

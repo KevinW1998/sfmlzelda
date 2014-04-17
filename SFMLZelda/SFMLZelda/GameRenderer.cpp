@@ -32,6 +32,6 @@ sf::RenderWindow* GameRenderer::getNative()
 void GameRenderer::RenderDrawableObject(DrawableObject* dao)
 {
 	if(dao->isVisible()){
-		dao->Render(m_nativeRenderer);
+		dao->OnRender(m_nativeRenderer);
 	}
 }

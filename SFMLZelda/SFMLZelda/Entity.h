@@ -16,8 +16,12 @@ public:
 	~Entity(void);
 
 	virtual int getType();
-	virtual void Render(sf::RenderWindow* renderer);
-	virtual void Update();
+	virtual void OnRender(sf::RenderWindow* renderer);
+	virtual void OnUpdate();
+	virtual void OnWalkUp();
+	virtual void OnWalkRight();
+	virtual void OnWalkDown();
+	virtual void OnWalkLeft();
 
 	enum Dir{
 		DIR_NORTH = 0,

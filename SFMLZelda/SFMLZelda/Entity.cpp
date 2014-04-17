@@ -101,24 +101,15 @@ void Entity::setDir(int dir)
 	}
 }
 
-void Entity::Render(sf::RenderWindow* renderer)
+void Entity::OnRender(sf::RenderWindow* renderer)
 {
 	renderer->draw(dirAnim[dir].getCurrentSprite());
 }
 
-void Entity::Update()
+void Entity::OnUpdate()
 {
 	if(animActive){
 		dirAnim[dir].nextFrame();
-		if(dir == DIR_NORTH){
-			screenY--;
-		}else if(dir == DIR_EAST){
-			screenX++;
-		}else if(dir == DIR_SOUTH){
-			screenY++;
-		}else if(dir == DIR_WEST){
-			screenX--;
-		}
 	}else{
 		dirAnim[dir].setCurrentFrame(0);
 	}
@@ -133,4 +124,24 @@ bool Entity::isAnimActive()
 void Entity::setAnimActive(bool isActive)
 {
 	animActive = isActive;
+}
+
+void Entity::OnWalkUp()
+{
+	screenY--;
+}
+
+void Entity::OnWalkRight()
+{
+	screenX++;
+}
+
+void Entity::OnWalkDown()
+{
+	screenY++;
+}
+
+void Entity::OnWalkLeft()
+{
+	screenX--;
 }
