@@ -16,3 +16,8 @@ Link::Link(int x, int y) : Entity(false,x,y)
 Link::~Link()
 {
 }
+
+int Link::getType()
+{
+	return DOTYPE_LINK;
+}
