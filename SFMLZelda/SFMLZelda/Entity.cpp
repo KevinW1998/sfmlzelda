@@ -7,7 +7,7 @@ void Entity::init()
 	dirAnim = new SpriteAnimation[4];
 
 	sf::Image blImg;
-	blImg.create(16,16,sf::Color::Black);
+	blImg.create(16,16,sf::Color::Magenta);
 
 	sf::Image yeImg;
 	yeImg.create(16,16,sf::Color::Yellow);
