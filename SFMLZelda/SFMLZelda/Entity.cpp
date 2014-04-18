@@ -6,8 +6,8 @@ void Entity::init()
 {
 	dirAnim = new SpriteAnimation[4];
 
-	sf::Image blImg;
-	blImg.create(16,16,sf::Color::Magenta);
+	sf::Image magImg;
+	magImg.create(16,16,sf::Color::Magenta);
 
 	sf::Image yeImg;
 	yeImg.create(16,16,sf::Color::Yellow);
@@ -22,8 +22,8 @@ void Entity::init()
 	redImg.create(16,16,sf::Color::Red);
 
 
-	sf::Texture blTxt;
-	blTxt.loadFromImage(blImg);
+	sf::Texture magTxt;
+	magTxt.loadFromImage(magImg);
 
 	sf::Texture yeTxt;
 	yeTxt.loadFromImage(yeImg);
@@ -38,7 +38,7 @@ void Entity::init()
 	redTxt.loadFromImage(redImg);
 
 	textureBuf = std::vector<sf::Texture>::vector();
-	textureBuf.push_back(blTxt);
+	textureBuf.push_back(magTxt);
 	textureBuf.push_back(yeTxt);
 	textureBuf.push_back(bluTxt);
 	textureBuf.push_back(grTxt);
