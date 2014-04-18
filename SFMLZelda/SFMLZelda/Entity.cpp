@@ -50,11 +50,11 @@ void Entity::init()
 	sf::Sprite sSpr(textureBuf[3]);
 	sf::Sprite wSpr(textureBuf[4]);
 
-	aniBase.setPosition(screenX,screenY);
-	ySpr.setPosition(screenX,screenY);
-	eSpr.setPosition(screenX,screenY);
-	sSpr.setPosition(screenX,screenY);
-	wSpr.setPosition(screenX,screenY);
+	aniBase.setPosition((float)screenX,(float)screenY);
+	ySpr.setPosition((float)screenX, (float)screenY);
+	eSpr.setPosition((float)screenX, (float)screenY);
+	sSpr.setPosition((float)screenX, (float)screenY);
+	wSpr.setPosition((float)screenX, (float)screenY);
 
 	dirAnim[DIR_NORTH].addSprite(aniBase);
 	dirAnim[DIR_NORTH].addSprite(ySpr);
@@ -123,7 +123,7 @@ void Entity::OnUpdate()
 	}else{
 		dirAnim[dir].setCurrentFrame(0);
 	}
-	dirAnim[dir].getCurrentSpritePointer()->setPosition(screenX,screenY);
+	dirAnim[dir].getCurrentSpritePointer()->setPosition((float)screenX, (float)screenY);
 }
 
 bool Entity::isAnimActive()

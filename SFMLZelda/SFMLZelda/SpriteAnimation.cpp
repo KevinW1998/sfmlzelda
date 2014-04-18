@@ -65,7 +65,7 @@ void SpriteAnimation::nextFrame()
 
 void SpriteAnimation::deleteSprite(int pos)
 {
-	if(pos >= spriteList.size() || pos < 0){
+	if(pos >= (int)spriteList.size() || pos < 0){
 		return;
 	}else{
 		spriteList.erase(spriteList.begin()+pos);
