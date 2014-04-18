@@ -36,6 +36,10 @@ public:
 
 protected:
 	SpriteAnimation* dirAnim;
+	std::vector<SpriteAnimation*> extraAnim;
+	bool usageOfExtraAnimation;
+	int currentExtraAnimation;
+
 	int dir;
 	bool animActive;
 
