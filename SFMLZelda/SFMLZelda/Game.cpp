@@ -99,7 +99,7 @@ void Game::CheckKeyState()
 		sampleEntity->setAnimActive(false);
 	}
 
-
+	
 	if (isUpPressed){
 		sampleEntity->OnWalkUp();
 	}else if (isDownPressed){
