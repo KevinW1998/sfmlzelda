@@ -63,6 +63,9 @@
     <ClCompile Include="GameRenderer.cpp">
       <Filter>Source Files\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="Link.cpp">
+      <Filter>Source Files\Game\Entity</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -85,6 +88,9 @@
     </ClInclude>
     <ClInclude Include="GameRenderer.h">
       <Filter>Header Files\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Link.h">
+      <Filter>Header Files\Game\Entity</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

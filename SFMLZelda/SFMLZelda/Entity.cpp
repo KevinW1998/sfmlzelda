@@ -67,14 +67,24 @@ void Entity::init()
 }
 
 
-Entity::Entity() : DrawableObject(), dir(1), animActive(false)
+Entity::Entity(bool genBaseAnimationSprite) : DrawableObject(), dir(1), animActive(false)
 {
-	init();
+	if (genBaseAnimationSprite){
+		init();
+	}else{ //Only init vars
+		textureBuf = std::vector<sf::Texture>::vector();
+		dirAnim = new SpriteAnimation[4];
+	}
 }
 
-Entity::Entity(int x, int y) : DrawableObject(x,y), dir(1), animActive(false)
+Entity::Entity(bool genBaseAnimationSprite, int x, int y) : DrawableObject(x, y), dir(1), animActive(false)
 {
-	init();
+	if (genBaseAnimationSprite){
+		init();
+	}else{ //Only init vars
+		textureBuf = std::vector<sf::Texture>::vector();
+		dirAnim = new SpriteAnimation[4];
+	}
 }
 
 

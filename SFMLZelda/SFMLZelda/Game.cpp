@@ -17,7 +17,7 @@ Game::Game(sf::RenderWindow* rWindow) :
 	isUpPressed(false)
 {
 	m_renderer = new GameRenderer(rWindow);
-	sampleEntity = new Entity(100,100);
+	sampleEntity = new Entity(true,100,100);
 }
 
 

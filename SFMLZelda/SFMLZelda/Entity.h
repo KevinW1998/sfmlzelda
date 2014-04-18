@@ -9,8 +9,8 @@ class Entity :
 	public DrawableObject
 {
 public:
-	Entity();
-	Entity(int x, int y);
+	Entity(bool genBaseAnimationSprite);
+	Entity(bool genBaseAnimationSprite, int x, int y);
 
 
 	~Entity(void);
