@@ -1,6 +1,8 @@
 #include "StdAfx.h"
 #include "Game.h"
 
+//ODLBUMBM
+
 #define KP(k) sf::Keyboard::isKeyPressed(k)
 #define UP KP(sf::Keyboard::Up)
 #define DOWN KP(sf::Keyboard::Down)
