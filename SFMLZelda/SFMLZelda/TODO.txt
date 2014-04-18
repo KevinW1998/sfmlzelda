@@ -1,0 +1,5 @@
+* SpriteAnimation-Class:
+** Adding Loopable or Non-Loopable SpriteAnimations
+
+================
+And lots of other stuff.....
