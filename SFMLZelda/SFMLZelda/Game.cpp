@@ -102,25 +102,68 @@ void Game::CheckKeyState()
 
 	if (isUpPressed){
 		sampleEntity->OnWalkUp();
-	}else if (isDownPressed){
+	}
+	else if (isDownPressed){
 		sampleEntity->OnWalkDown();
 	}
 
 	if (isLeftPressed){
 		sampleEntity->OnWalkLeft();
-	}else if (isRightPressed){
+	}
+	else if (isRightPressed){
 		sampleEntity->OnWalkRight();
 	}
-	
+
+
+	if (isUpPressed){
+		if (isLeftPressed){
+			//No Animation change
+		}
+		else if (isRightPressed){
+			//No Animation change
+		}
+		else{
+			//Animation change
+			sampleEntity->setDir(Entity::DIR_NORTH);
+		}
+	}
+
 
 	if (isLeftPressed){
-		sampleEntity->setDir(Entity::DIR_WEST);
-	}else if (isRightPressed){
-		sampleEntity->setDir(Entity::DIR_EAST);
-	}else if (isUpPressed){
-		sampleEntity->setDir(Entity::DIR_NORTH);
-	}else if (isDownPressed){
-		sampleEntity->setDir(Entity::DIR_SOUTH);
+		if (isUpPressed){
+			//No Animation change
+		}
+		else if (isDownPressed){
+			//No Animation change
+		}
+		else{
+			//Animation change
+			sampleEntity->setDir(Entity::DIR_WEST);
+		}
+	}
+	if (isDownPressed){
+		if (isRightPressed){
+			//No Animation change
+		}
+		else if (isLeftPressed){
+			//No Animation change
+		}
+		else{
+			//Animation change
+			sampleEntity->setDir(Entity::DIR_SOUTH);
+		}
+	}
+	if (isRightPressed){
+		if (isUpPressed){
+			//No Animation change
+		}
+		else if (isDownPressed){
+			//No Animation change
+		}
+		else{
+			//Animation change
+			sampleEntity->setDir(Entity::DIR_EAST);
+		}
 	}
 }
 
