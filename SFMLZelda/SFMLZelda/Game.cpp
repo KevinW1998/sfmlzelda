@@ -162,8 +162,10 @@ void Game::CheckKeyState()
 		}
 	}
 	if (isSpacePressed){
-		sampleLink->setCurrentExtraAnimation(Link::ANIM_SWORDHIT_EAST);
-		sampleLink->setExtraAnimationActive(true);
+		if (sampleLink->getDir() == Link::DIR_EAST){
+			sampleLink->setCurrentExtraAnimation(Link::ANIM_SWORDHIT_EAST);
+			sampleLink->setExtraAnimationActive(true);
+		}
 	}else{
 		sampleLink->setExtraAnimationActive(false);
 	}

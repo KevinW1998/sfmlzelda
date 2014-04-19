@@ -3,3 +3,13 @@
 
 ================
 And lots of other stuff.....
+
+
+
+
+Ideas:
+2 layer World 
+	1. Layer: Pink - Hitbox
+			  Brown - Normal movinganimation
+			  Blue - Swimming
+			  ...
