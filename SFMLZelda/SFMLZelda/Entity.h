@@ -41,11 +41,18 @@ public:
 	int getCurrentExtraAnimation();
 	void setCurrentExtraAnimation(int extraAnim);
 
+	int getMaxFrameTime();
+	void setMaxFrameTime(int framesUntilSwitch);
+
 protected:
 	SpriteAnimation* dirAnim;
 	std::vector<SpriteAnimation*> extraAnim;
 	bool usageOfExtraAnimation;
 	int currentExtraAnimation;
+
+	//Frame Options
+	int maxFrameTime;
+	int frameTimer;
 
 	int dir;
 	bool animActive;
