@@ -189,4 +189,32 @@ int Link::getType()
 	return DOTYPE_LINK;
 }
 
+void Link::OnWalkUp()
+{
+	if (canUpdate()){
+		screenY -= 3;
+	}
+}
+
+void Link::OnWalkRight()
+{
+	if (canUpdate()){
+		screenX += 3;
+	}
+}
+
+void Link::OnWalkDown()
+{
+	if (canUpdate()){
+		screenY += 3;
+	}
+}
+
+void Link::OnWalkLeft()
+{
+	if (canUpdate()){
+		screenX -= 3;
+	}
+}
+
 

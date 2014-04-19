@@ -20,6 +20,10 @@ public:
 	virtual int getType();
 	virtual void OnRender(sf::RenderWindow* renderer);
 	virtual void OnUpdate();
+	virtual void OnWalkUp();
+	virtual void OnWalkRight();
+	virtual void OnWalkDown();
+	virtual void OnWalkLeft();
 
 private:
 	void init();
