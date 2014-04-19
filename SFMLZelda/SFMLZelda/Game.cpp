@@ -8,6 +8,7 @@
 #define DOWN KP(sf::Keyboard::Down)
 #define RIGHT KP(sf::Keyboard::Right)
 #define LEFT KP(sf::Keyboard::Left)
+#define HIT KP(sf::Keyboard::Space)
 
 
 Game::Game(sf::RenderWindow* rWindow) :
@@ -49,7 +50,15 @@ void Game::Render()
 }
 
 void Game::CheckKeyState()
-{
+{	
+	if (HIT){
+		//Press Space
+		isSpacePressed = true;
+	}
+	else{
+		//Release Space
+		isSpacePressed = false;
+	}
 
 	if (!(RIGHT && LEFT)){
 		if (RIGHT && !isRightPressed){
@@ -96,7 +105,7 @@ void Game::CheckKeyState()
 	}
 
 	//Key Pressing Check Loop
-	if (isUpPressed || isRightPressed || isDownPressed || isLeftPressed){
+	if (isUpPressed || isRightPressed || isDownPressed || isLeftPressed || isSpacePressed){
 		//sampleEntity->setAnimActive(true);
 		sampleLink->setAnimActive(true);
 	}else{
@@ -151,6 +160,12 @@ void Game::CheckKeyState()
 			//sampleEntity->setDir(Entity::DIR_EAST);
 			sampleLink->setDir(Entity::DIR_EAST);
 		}
+	}
+	if (isSpacePressed){
+		sampleLink->setCurrentExtraAnimation(Link::ANIM_SWORDHIT_EAST);
+		sampleLink->setExtraAnimationActive(true);
+	}else{
+		sampleLink->setExtraAnimationActive(false);
 	}
 }
 

@@ -40,6 +40,18 @@ void Link::init()
 	sf::Texture eastWalkText;
 	eastWalkText.loadFromImage(spriteSheetImg, sf::IntRect(94, 6, 14, 16));
 
+	//Link East Hit Texture 1
+	sf::Texture eastHitText1;
+	eastHitText1.loadFromImage(spriteSheetImg, sf::IntRect(41, 107, 15, 31));
+
+	//Link East Hit Texture 2
+	sf::Texture eastHitText2;
+	eastHitText2.loadFromImage(spriteSheetImg, sf::IntRect(63, 107 , 27, 31));
+
+	//Link East Hit Texture 3
+	sf::Texture eastHitText3;
+	eastHitText3.loadFromImage(spriteSheetImg, sf::IntRect(94, 107, 30, 31));
+
 	textureBuf.push_back(northBaseText);
 	textureBuf.push_back(northWalkText);
 	textureBuf.push_back(eastBaseText);
@@ -49,6 +61,10 @@ void Link::init()
 	textureBuf.push_back(westBaseText);
 	textureBuf.push_back(westWalkText);
 
+	textureBuf.push_back(eastHitText1);
+	textureBuf.push_back(eastHitText2);
+	textureBuf.push_back(eastHitText3);
+
 	sf::Sprite northBaseSpr(textureBuf[0]);
 	sf::Sprite northWalkSpr(textureBuf[1]);
 	sf::Sprite eastBaseSpr(textureBuf[2]);
@@ -57,6 +73,10 @@ void Link::init()
 	sf::Sprite southWalkSpr(textureBuf[5]);
 	sf::Sprite westBaseSpr(textureBuf[6]);
 	sf::Sprite westWalkSpr(textureBuf[7]);
+
+	sf::Sprite EastHit1Spr(textureBuf[8]);
+	sf::Sprite EastHit2Spr(textureBuf[9]);
+	sf::Sprite EastHit3Spr(textureBuf[10]);
 
 	northBaseSpr.setPosition((float)screenX, (float)screenY);
 	northWalkSpr.setPosition((float)screenX, (float)screenY);
@@ -76,6 +96,13 @@ void Link::init()
 	dirAnim[DIR_SOUTH].addSprite(southWalkSpr);
 	dirAnim[DIR_WEST].addSprite(westBaseSpr);
 	dirAnim[DIR_WEST].addSprite(westWalkSpr);
+
+	SpriteAnimation* eastHit = new SpriteAnimation();
+	eastHit->addSprite(EastHit1Spr);
+	eastHit->addSprite(EastHit2Spr);
+	eastHit->addSprite(EastHit3Spr);
+	extraAnim.push_back(eastHit);
+	
 }
 
 Link::Link() : Entity(false)
@@ -90,6 +117,26 @@ Link::Link(int x, int y) : Entity(false,x,y)
 	init();
 }
 
+void Link::OnRender(sf::RenderWindow* renderer){
+	if (usageOfExtraAnimation){
+		renderer->draw(extraAnim[currentExtraAnimation]->getCurrentSprite());
+	}else{
+		Entity::OnRender(renderer);
+	}
+}
+
+void Link::OnUpdate(){
+	if (usageOfExtraAnimation){
+		extraAnim[currentExtraAnimation]->nextFrame();
+		if (currentExtraAnimation == ANIM_SWORDHIT_EAST){
+			extraAnim[currentExtraAnimation]->getCurrentSpritePointer()->setPosition(screenX, screenY-15);
+		}
+		
+	}else{
+		Entity::OnUpdate();
+	}
+	
+}
 
 Link::~Link()
 {

@@ -24,6 +24,7 @@ private:
 	bool isDownPressed;
 	bool isRightPressed;
 	bool isLeftPressed;
+	bool isSpacePressed;
 
 	Entity* sampleEntity;
 	Link* sampleLink;

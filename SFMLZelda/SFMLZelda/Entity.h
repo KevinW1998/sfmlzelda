@@ -31,8 +31,15 @@ public:
 	};
 	int getDir();
 	void setDir(int dir);
+	
 	bool isAnimActive();
 	void setAnimActive(bool isActive);
+
+	bool isExtraAnimationActive();
+	void setExtraAnimationActive(bool isActive);
+
+	int getCurrentExtraAnimation();
+	void setCurrentExtraAnimation(int extraAnim);
 
 protected:
 	SpriteAnimation* dirAnim;

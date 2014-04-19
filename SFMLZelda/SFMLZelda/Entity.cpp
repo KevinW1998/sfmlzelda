@@ -67,7 +67,11 @@ void Entity::init()
 }
 
 
-Entity::Entity(bool genBaseAnimationSprite) : DrawableObject(), dir(1), animActive(false)
+Entity::Entity(bool genBaseAnimationSprite) : DrawableObject(),
+	dir(1),
+	animActive(false),
+	usageOfExtraAnimation(false),
+	currentExtraAnimation(0)
 {
 	if (genBaseAnimationSprite){
 		init();
@@ -77,7 +81,11 @@ Entity::Entity(bool genBaseAnimationSprite) : DrawableObject(), dir(1), animActi
 	}
 }
 
-Entity::Entity(bool genBaseAnimationSprite, int x, int y) : DrawableObject(x, y), dir(1), animActive(false)
+Entity::Entity(bool genBaseAnimationSprite, int x, int y) : DrawableObject(x, y), 
+	dir(1), 
+	animActive(false),
+	usageOfExtraAnimation(false),
+	currentExtraAnimation(0)
 {
 	if (genBaseAnimationSprite){
 		init();
@@ -154,4 +162,21 @@ void Entity::OnWalkDown()
 void Entity::OnWalkLeft()
 {
 	screenX--;
+}
+
+
+bool Entity::isExtraAnimationActive(){
+	return usageOfExtraAnimation;
+}
+
+void Entity::setExtraAnimationActive(bool isActive){
+	usageOfExtraAnimation = isActive;
+}
+
+int Entity::getCurrentExtraAnimation(){
+	return currentExtraAnimation;
+}
+
+void Entity::setCurrentExtraAnimation(int extraAnim){
+	currentExtraAnimation = extraAnim;
 }
