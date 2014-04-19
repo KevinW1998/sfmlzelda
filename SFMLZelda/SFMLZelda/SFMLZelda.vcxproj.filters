@@ -92,6 +92,9 @@
     <ClInclude Include="Link.h">
       <Filter>Header Files\Game\Entity</Filter>
     </ClInclude>
+    <ClInclude Include="settings.h">
+      <Filter>Header Files\Main</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="images\Zelda_Links_Awakening_SpriteSheet.psd">

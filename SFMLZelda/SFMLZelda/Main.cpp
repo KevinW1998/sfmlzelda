@@ -9,11 +9,16 @@
 
 #include "stdafx.h"
 #include "Game.h"
-
+#include "settings.h"
 
 int main()
 {
+#if SFML_FULLSCREEN == 1
+	sf::RenderWindow window(sf::VideoMode(720, 480), "SFML works!",sf::Style::Fullscreen);
+#else
 	sf::RenderWindow window(sf::VideoMode(720, 480), "SFML works!");
+#endif
+	
 	window.setFramerateLimit(60);
 	Game g(&window);
 
@@ -24,6 +29,11 @@ int main()
 		{
 			if (event.type == sf::Event::Closed)
 				window.close();
+			if (event.type == sf::Event::KeyPressed){
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)){
+					window.close();
+				}
+			}
 		}
 
 
