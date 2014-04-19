@@ -71,7 +71,9 @@ Entity::Entity(bool genBaseAnimationSprite) : DrawableObject(),
 	dir(1),
 	animActive(false),
 	usageOfExtraAnimation(false),
-	currentExtraAnimation(0)
+	currentExtraAnimation(0),
+	maxFrameTime(1),
+	frameTimer(0)
 {
 	if (genBaseAnimationSprite){
 		init();
@@ -85,7 +87,9 @@ Entity::Entity(bool genBaseAnimationSprite, int x, int y) : DrawableObject(x, y)
 	dir(1), 
 	animActive(false),
 	usageOfExtraAnimation(false),
-	currentExtraAnimation(0)
+	currentExtraAnimation(0),
+	maxFrameTime(1),
+	frameTimer(0)
 {
 	if (genBaseAnimationSprite){
 		init();
@@ -179,4 +183,14 @@ int Entity::getCurrentExtraAnimation(){
 
 void Entity::setCurrentExtraAnimation(int extraAnim){
 	currentExtraAnimation = extraAnim;
+}
+
+int Entity::getMaxFrameTime()
+{
+	return maxFrameTime;
+}
+
+void Entity::setMaxFrameTime(int framesUntilSwitch)
+{
+	maxFrameTime = framesUntilSwitch;
 }
