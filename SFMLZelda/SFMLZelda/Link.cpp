@@ -52,6 +52,18 @@ void Link::init()
 	sf::Texture eastHitText3;
 	eastHitText3.loadFromImage(spriteSheetImg, sf::IntRect(94, 107, 30, 31));
 
+	//Link West Hit Texture 1
+	sf::Texture westHitText1;
+	westHitText1.loadFromImage(spriteSheetImg, sf::IntRect(197, 107, 15, 31));
+
+	//Link West Hit Texture 2
+	sf::Texture westHitText2;
+	westHitText2.loadFromImage(spriteSheetImg, sf::IntRect(164, 107, 27, 31));
+
+	//Link West Hit Texture 3
+	sf::Texture westHitText3;
+	westHitText3.loadFromImage(spriteSheetImg, sf::IntRect(130, 107, 30, 31));
+
 	textureBuf.push_back(northBaseText);
 	textureBuf.push_back(northWalkText);
 	textureBuf.push_back(eastBaseText);
@@ -65,6 +77,10 @@ void Link::init()
 	textureBuf.push_back(eastHitText2);
 	textureBuf.push_back(eastHitText3);
 
+	textureBuf.push_back(westHitText1);
+	textureBuf.push_back(westHitText2);
+	textureBuf.push_back(westHitText3);
+
 	sf::Sprite northBaseSpr(textureBuf[0]);
 	sf::Sprite northWalkSpr(textureBuf[1]);
 	sf::Sprite eastBaseSpr(textureBuf[2]);
@@ -77,6 +93,11 @@ void Link::init()
 	sf::Sprite EastHit1Spr(textureBuf[8]);
 	sf::Sprite EastHit2Spr(textureBuf[9]);
 	sf::Sprite EastHit3Spr(textureBuf[10]);
+
+	sf::Sprite westHit1Spr(textureBuf[11]);
+	sf::Sprite westHit2Spr(textureBuf[12]);
+	sf::Sprite westHit3Spr(textureBuf[13]);
+
 
 	northBaseSpr.setPosition((float)screenX, (float)screenY);
 	northWalkSpr.setPosition((float)screenX, (float)screenY);
@@ -103,6 +124,11 @@ void Link::init()
 	eastHit->addSprite(EastHit3Spr);
 	extraAnim.push_back(eastHit);
 	
+	SpriteAnimation* westHit = new SpriteAnimation();
+	westHit->addSprite(westHit1Spr);
+	westHit->addSprite(westHit2Spr);
+	westHit->addSprite(westHit3Spr);
+	extraAnim.push_back(westHit);
 }
 
 Link::Link() : Entity(false)
@@ -130,6 +156,13 @@ void Link::OnUpdate(){
 		extraAnim[currentExtraAnimation]->nextFrame();
 		if (currentExtraAnimation == ANIM_SWORDHIT_EAST){
 			extraAnim[currentExtraAnimation]->getCurrentSpritePointer()->setPosition(screenX, screenY-15);
+		}else if (currentExtraAnimation == ANIM_SWORDHIT_WEST){
+			extraAnim[currentExtraAnimation]->getCurrentSpritePointer()->setPosition(screenX - 15, screenY - 15);
+			if (extraAnim[currentExtraAnimation]->getCurrentFrame() == 0){
+				extraAnim[currentExtraAnimation]->getCurrentSpritePointer()->setPosition(screenX - 4, screenY - 15);
+			}else if (extraAnim[currentExtraAnimation]->getCurrentFrame() == 2){
+				extraAnim[currentExtraAnimation]->getCurrentSpritePointer()->setPosition(screenX - 18, screenY - 15);
+			}
 		}
 		
 	}else{

@@ -13,7 +13,8 @@ public:
 	~Link();
 
 	enum extraAnimList {
-		ANIM_SWORDHIT_EAST = 0
+		ANIM_SWORDHIT_EAST = 0,
+		ANIM_SWORDHIT_WEST
 	};
 
 	virtual int getType();

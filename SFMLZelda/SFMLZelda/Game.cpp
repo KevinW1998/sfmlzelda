@@ -165,6 +165,9 @@ void Game::CheckKeyState()
 		if (sampleLink->getDir() == Link::DIR_EAST){
 			sampleLink->setCurrentExtraAnimation(Link::ANIM_SWORDHIT_EAST);
 			sampleLink->setExtraAnimationActive(true);
+		}else if (sampleLink->getDir() == Link::DIR_WEST){
+			sampleLink->setCurrentExtraAnimation(Link::ANIM_SWORDHIT_WEST);
+			sampleLink->setExtraAnimationActive(true);
 		}
 	}else{
 		sampleLink->setExtraAnimationActive(false);
