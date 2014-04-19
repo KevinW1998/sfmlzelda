@@ -45,7 +45,7 @@ void Game::Update()
 
 void Game::Render()
 {
-	m_renderer->RenderDrawableObject(sampleEntity);
+	//m_renderer->RenderDrawableObject(sampleEntity);
 	m_renderer->RenderDrawableObject(sampleLink);
 }
 
