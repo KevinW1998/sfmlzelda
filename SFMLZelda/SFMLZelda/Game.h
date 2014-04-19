@@ -2,7 +2,7 @@
 #pragma once
 #include "stdafx.h"
 #include "GameRenderer.h"
-#include "Entity.h"
+#include "Link.h"
 
 class Game
 {
@@ -26,6 +26,7 @@ private:
 	bool isLeftPressed;
 
 	Entity* sampleEntity;
+	Link* sampleLink;
 
 };
 

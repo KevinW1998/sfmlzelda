@@ -13,5 +13,8 @@ public:
 	~Link();
 
 	virtual int getType();
+
+private:
+	void init();
 };
 

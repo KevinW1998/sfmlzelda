@@ -18,6 +18,7 @@ Game::Game(sf::RenderWindow* rWindow) :
 {
 	m_renderer = new GameRenderer(rWindow);
 	sampleEntity = new Entity(true,100,100);
+	sampleLink = new Link(200, 200);
 }
 
 
@@ -38,11 +39,13 @@ void Game::Update()
 {
 	CheckKeyState();
 	sampleEntity->OnUpdate();
+	sampleLink->OnUpdate();
 }
 
 void Game::Render()
 {
 	m_renderer->RenderDrawableObject(sampleEntity);
+	m_renderer->RenderDrawableObject(sampleLink);
 }
 
 void Game::CheckKeyState()
@@ -94,49 +97,59 @@ void Game::CheckKeyState()
 
 	//Key Pressing Check Loop
 	if (isUpPressed || isRightPressed || isDownPressed || isLeftPressed){
-		sampleEntity->setAnimActive(true);
+		//sampleEntity->setAnimActive(true);
+		sampleLink->setAnimActive(true);
 	}else{
-		sampleEntity->setAnimActive(false);
+		//sampleEntity->setAnimActive(false);
+		sampleLink->setAnimActive(false);
 	}
 
 	//Movment Change
 	if (isUpPressed){
-		sampleEntity->OnWalkUp();
+		//sampleEntity->OnWalkUp();
+		sampleLink->OnWalkUp();
 	}
 	else if (isDownPressed){
-		sampleEntity->OnWalkDown();
+		//sampleEntity->OnWalkDown();
+		sampleLink->OnWalkDown();
 	}
 
 	if (isLeftPressed){
-		sampleEntity->OnWalkLeft();
+		//sampleEntity->OnWalkLeft();
+		sampleLink->OnWalkLeft();
 	}
 	else if (isRightPressed){
-		sampleEntity->OnWalkRight();
+		//sampleEntity->OnWalkRight();
+		sampleLink->OnWalkRight();
 	}
 
 	//Animation Changes
 	if (isUpPressed){
 		if (!isLeftPressed && !isRightPressed){
 			//Animation change
-			sampleEntity->setDir(Entity::DIR_NORTH);
+			//sampleEntity->setDir(Entity::DIR_NORTH);
+			sampleLink->setDir(Entity::DIR_NORTH);
 		}
 	}
 	if (isLeftPressed){
 		if (!isUpPressed && !isDownPressed){
 			//Animation change
-			sampleEntity->setDir(Entity::DIR_WEST);
+			//sampleEntity->setDir(Entity::DIR_WEST);
+			sampleLink->setDir(Entity::DIR_WEST);
 		}
 	}
 	if (isDownPressed){
 		if (!isRightPressed && !isLeftPressed){
 			//Animation change
-			sampleEntity->setDir(Entity::DIR_SOUTH);
+			//sampleEntity->setDir(Entity::DIR_SOUTH);
+			sampleLink->setDir(Entity::DIR_SOUTH);
 		}
 	}
 	if (isRightPressed){
 		if (!isUpPressed && !isDownPressed){
 			//Animation change
-			sampleEntity->setDir(Entity::DIR_EAST);
+			//sampleEntity->setDir(Entity::DIR_EAST);
+			sampleLink->setDir(Entity::DIR_EAST);
 		}
 	}
 }
