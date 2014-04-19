@@ -44,6 +44,13 @@ public:
 	int getMaxFrameTime();
 	void setMaxFrameTime(int framesUntilSwitch);
 
+	void beginUpdate();
+	void endUpdate();
+
+	//If a methode want to check before sending a update call....
+	bool canUpdate();
+	void forceToUpdate();
+
 protected:
 	SpriteAnimation* dirAnim;
 	std::vector<SpriteAnimation*> extraAnim;
@@ -53,6 +60,7 @@ protected:
 	//Frame Options
 	int maxFrameTime;
 	int frameTimer;
+	bool forceUpdate;
 
 	int dir;
 	bool animActive;

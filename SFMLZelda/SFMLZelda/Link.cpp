@@ -135,12 +135,14 @@ Link::Link() : Entity(false)
 {
 	//Init
 	init();
+	maxFrameTime = 5;
 }
 
 Link::Link(int x, int y) : Entity(false,x,y)
 {
 	//Init
 	init();
+	maxFrameTime = 5;
 }
 
 void Link::OnRender(sf::RenderWindow* renderer){
@@ -152,21 +154,28 @@ void Link::OnRender(sf::RenderWindow* renderer){
 }
 
 void Link::OnUpdate(){
-	if (usageOfExtraAnimation){
-		extraAnim[currentExtraAnimation]->nextFrame();
-		if (currentExtraAnimation == ANIM_SWORDHIT_EAST){
-			extraAnim[currentExtraAnimation]->getCurrentSpritePointer()->setPosition(screenX, screenY-15);
-		}else if (currentExtraAnimation == ANIM_SWORDHIT_WEST){
-			extraAnim[currentExtraAnimation]->getCurrentSpritePointer()->setPosition(screenX - 15, screenY - 15);
-			if (extraAnim[currentExtraAnimation]->getCurrentFrame() == 0){
-				extraAnim[currentExtraAnimation]->getCurrentSpritePointer()->setPosition(screenX - 4, screenY - 15);
-			}else if (extraAnim[currentExtraAnimation]->getCurrentFrame() == 2){
-				extraAnim[currentExtraAnimation]->getCurrentSpritePointer()->setPosition(screenX - 18, screenY - 15);
+	if (canUpdate()){
+		if (usageOfExtraAnimation){
+			extraAnim[currentExtraAnimation]->nextFrame();
+			if (currentExtraAnimation == ANIM_SWORDHIT_EAST){
+				extraAnim[currentExtraAnimation]->getCurrentSpritePointer()->setPosition(screenX, screenY - 15);
 			}
+			else if (currentExtraAnimation == ANIM_SWORDHIT_WEST){
+				extraAnim[currentExtraAnimation]->getCurrentSpritePointer()->setPosition(screenX - 15, screenY - 15);
+				if (extraAnim[currentExtraAnimation]->getCurrentFrame() == 0){
+					extraAnim[currentExtraAnimation]->getCurrentSpritePointer()->setPosition(screenX - 4, screenY - 15);
+				}
+				else if (extraAnim[currentExtraAnimation]->getCurrentFrame() == 2){
+					extraAnim[currentExtraAnimation]->getCurrentSpritePointer()->setPosition(screenX - 18, screenY - 15);
+				}
+			}
+
+		}else{
+			Entity::OnUpdate();
 		}
-		
+		std::cout << "Reset" << std::endl;
 	}else{
-		Entity::OnUpdate();
+		std::cout << "Add" << std::endl;
 	}
 	
 }

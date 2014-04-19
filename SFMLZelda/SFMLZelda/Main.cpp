@@ -19,6 +19,8 @@ int main()
 	sf::RenderWindow window(sf::VideoMode(720, 480), "SFML works!");
 #endif
 	
+	bool pauseBeforeClose = false;
+
 	window.setFramerateLimit(60);
 	Game g(&window);
 
@@ -33,12 +35,20 @@ int main()
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)){
 					window.close();
 				}
+				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Pause)){
+					window.close();
+					pauseBeforeClose = true;
+				}
 			}
 		}
 
 
 		g.RunLoop();
 
+	}
+
+	if (pauseBeforeClose){
+		system("pause");
 	}
 
 	return 0;

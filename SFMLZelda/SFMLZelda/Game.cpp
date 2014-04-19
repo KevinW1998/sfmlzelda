@@ -8,7 +8,7 @@
 #define DOWN KP(sf::Keyboard::Down)
 #define RIGHT KP(sf::Keyboard::Right)
 #define LEFT KP(sf::Keyboard::Left)
-#define HIT KP(sf::Keyboard::Space)
+#define SPACE KP(sf::Keyboard::Space)
 
 
 Game::Game(sf::RenderWindow* rWindow) :
@@ -38,9 +38,11 @@ void Game::RunLoop()
 
 void Game::Update()
 {
+	sampleLink->beginUpdate();
 	CheckKeyState();
 	sampleEntity->OnUpdate();
 	sampleLink->OnUpdate();
+	sampleLink->endUpdate();
 }
 
 void Game::Render()
@@ -51,13 +53,14 @@ void Game::Render()
 
 void Game::CheckKeyState()
 {	
-	if (HIT){
+	if (SPACE && !isSpacePressed){
 		//Press Space
 		isSpacePressed = true;
-	}
-	else{
+		sampleLink->forceToUpdate();
+	}else if(!SPACE && isSpacePressed){
 		//Release Space
 		isSpacePressed = false;
+		sampleLink->forceToUpdate();
 	}
 
 	if (!(RIGHT && LEFT)){

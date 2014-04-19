@@ -73,7 +73,8 @@ Entity::Entity(bool genBaseAnimationSprite) : DrawableObject(),
 	usageOfExtraAnimation(false),
 	currentExtraAnimation(0),
 	maxFrameTime(1),
-	frameTimer(0)
+	frameTimer(0),
+	forceUpdate(false)
 {
 	if (genBaseAnimationSprite){
 		init();
@@ -89,7 +90,8 @@ Entity::Entity(bool genBaseAnimationSprite, int x, int y) : DrawableObject(x, y)
 	usageOfExtraAnimation(false),
 	currentExtraAnimation(0),
 	maxFrameTime(1),
-	frameTimer(0)
+	frameTimer(0),
+	forceUpdate(false)
 {
 	if (genBaseAnimationSprite){
 		init();
@@ -116,10 +118,14 @@ int Entity::getDir()
 
 void Entity::setDir(int dir)
 {
-	if(dir < 0 || dir > 3){
+	if (dir < 0 || dir > 3){
 		return;
 	}else{
+		int tempDir = this->dir;
 		this->dir = dir;
+		if (dir != tempDir){
+			forceUpdate = true;
+		}
 	}
 }
 
@@ -130,12 +136,15 @@ void Entity::OnRender(sf::RenderWindow* renderer)
 
 void Entity::OnUpdate()
 {
-	if(animActive){
-		dirAnim[dir].nextFrame();
-	}else{
-		dirAnim[dir].setCurrentFrame(0);
+	if (canUpdate()){
+		if (animActive){
+			dirAnim[dir].nextFrame();
+		}
+		else{
+			dirAnim[dir].setCurrentFrame(0);
+		}
+		dirAnim[dir].getCurrentSpritePointer()->setPosition((float)screenX, (float)screenY);
 	}
-	dirAnim[dir].getCurrentSpritePointer()->setPosition((float)screenX, (float)screenY);
 }
 
 bool Entity::isAnimActive()
@@ -150,22 +159,30 @@ void Entity::setAnimActive(bool isActive)
 
 void Entity::OnWalkUp()
 {
-	screenY--;
+	if (canUpdate()){
+		screenY--;
+	}
 }
 
 void Entity::OnWalkRight()
 {
-	screenX++;
+	if (canUpdate()){
+		screenX++;
+	}
 }
 
 void Entity::OnWalkDown()
 {
-	screenY++;
+	if (canUpdate()){
+		screenY++;
+	}
 }
 
 void Entity::OnWalkLeft()
 {
-	screenX--;
+	if (canUpdate()){
+		screenX--;
+	}
 }
 
 
@@ -193,4 +210,27 @@ int Entity::getMaxFrameTime()
 void Entity::setMaxFrameTime(int framesUntilSwitch)
 {
 	maxFrameTime = framesUntilSwitch;
+}
+
+void Entity::beginUpdate()
+{
+	frameTimer++;
+}
+
+void Entity::endUpdate()
+{
+	if (frameTimer == maxFrameTime){
+		frameTimer = 0;
+	}
+	forceUpdate = false;
+}
+
+bool Entity::canUpdate()
+{
+	return frameTimer == maxFrameTime || forceUpdate;
+}
+
+void Entity::forceToUpdate()
+{
+	forceUpdate = true;
 }
