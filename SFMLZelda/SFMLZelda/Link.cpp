@@ -14,7 +14,7 @@ void Link::init()
 
 	//Link North Walk Texture
 	sf::Texture northWalkText;
-	northWalkText.loadFromImage(spriteSheetImg, sf::IntRect(81, 6, 14, 16));
+	northWalkText.loadFromImage(spriteSheetImg, sf::IntRect(80, 6, 14, 16));
 
 	//Link South Base Texture
 	sf::Texture southBaseText;
