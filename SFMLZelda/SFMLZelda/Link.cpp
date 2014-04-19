@@ -4,7 +4,7 @@
 
 void Link::init()
 {
-	std::string spriteSheetPath = "images/Zelda_Links_Awakening_SpriteSheet.psd";
+	std::string spriteSheetPath = "images/Zelda_Links_Awakening_SpriteSheet-correction.psd";
 	sf::Image spriteSheetImg;
 	spriteSheetImg.loadFromFile(spriteSheetPath);
 
