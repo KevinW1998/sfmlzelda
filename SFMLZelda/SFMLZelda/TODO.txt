@@ -13,3 +13,5 @@ Ideas:
 			  Brown - Normal movinganimation
 			  Blue - Swimming
 			  ...
+
+Split up the tiles
