@@ -243,10 +243,16 @@ void Link::OnSyncSprite()
 				extraAnim[currentExtraAnimation]->getCurrentSpritePointer()->setPosition(screenX - 4, screenY - 15);
 			}else if (extraAnim[currentExtraAnimation]->getCurrentFrame() == 2){
 				extraAnim[currentExtraAnimation]->getCurrentSpritePointer()->setPosition(screenX - 18, screenY - 15);
-			}else if (currentExtraAnimation == ANIM_SWORDHIT_SOUTH){
-				extraAnim[currentExtraAnimation]->getCurrentSpritePointer()->setPosition(screenX, screenY);
 			}
 
+		}else if (currentExtraAnimation == ANIM_SWORDHIT_SOUTH){
+			extraAnim[currentExtraAnimation]->getCurrentSpritePointer()->setPosition(screenX, screenY);
+			if (extraAnim[currentExtraAnimation]->getCurrentFrame() == 0){
+				extraAnim[currentExtraAnimation]->getCurrentSpritePointer()->setPosition(screenX - 16, screenY);
+			}
+			else if (extraAnim[currentExtraAnimation]->getCurrentFrame() == 1){
+				extraAnim[currentExtraAnimation]->getCurrentSpritePointer()->setPosition(screenX - 11, screenY);
+			}
 		}
 	}else{
 		Entity::OnSyncSprite();
