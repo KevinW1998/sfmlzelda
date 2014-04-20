@@ -15,3 +15,7 @@ Ideas:
 			  ...
 
 Split up the tiles
+
+Stupid LoZ KI: Sees player over a defined distance
+			   Walks straight to the player, like in the old LoZ
+			   Before players has been detected, walks random arround (random numbers)
