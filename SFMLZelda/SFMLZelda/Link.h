@@ -24,6 +24,7 @@ public:
 	virtual void OnWalkRight();
 	virtual void OnWalkDown();
 	virtual void OnWalkLeft();
+	virtual void OnSyncSprite();
 
 private:
 	void init();

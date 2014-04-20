@@ -14,9 +14,9 @@
 int main()
 {
 #if SFML_FULLSCREEN == 1
-	sf::RenderWindow window(sf::VideoMode(720, 480), "SFML works!",sf::Style::Fullscreen);
+	sf::RenderWindow window(sf::VideoMode(SFML_WIDTH, SFML_HEIGHT), "SFML works!",sf::Style::Fullscreen);
 #else
-	sf::RenderWindow window(sf::VideoMode(720, 480), "SFML works!");
+	sf::RenderWindow window(sf::VideoMode(SFML_WIDTH, SFML_HEIGHT), "SFML works!");
 #endif
 	
 	bool pauseBeforeClose = false;

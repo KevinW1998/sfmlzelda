@@ -73,8 +73,7 @@ Entity::Entity(bool genBaseAnimationSprite) : DrawableObject(),
 	usageOfExtraAnimation(false),
 	currentExtraAnimation(0),
 	maxFrameTime(1),
-	frameTimer(0),
-	forceUpdate(false)
+	frameTimer(0)
 {
 	if (genBaseAnimationSprite){
 		init();
@@ -90,8 +89,7 @@ Entity::Entity(bool genBaseAnimationSprite, int x, int y) : DrawableObject(x, y)
 	usageOfExtraAnimation(false),
 	currentExtraAnimation(0),
 	maxFrameTime(1),
-	frameTimer(0),
-	forceUpdate(false)
+	frameTimer(0)
 {
 	if (genBaseAnimationSprite){
 		init();
@@ -121,11 +119,7 @@ void Entity::setDir(int dir)
 	if (dir < 0 || dir > 3){
 		return;
 	}else{
-		int tempDir = this->dir;
 		this->dir = dir;
-		if (dir != tempDir){
-			forceUpdate = true;
-		}
 	}
 }
 
@@ -143,7 +137,7 @@ void Entity::OnUpdate()
 		else{
 			dirAnim[dir].setCurrentFrame(0);
 		}
-		dirAnim[dir].getCurrentSpritePointer()->setPosition((float)screenX, (float)screenY);
+		OnSyncSprite();
 	}
 }
 
@@ -222,15 +216,18 @@ void Entity::endUpdate()
 	if (frameTimer == maxFrameTime){
 		frameTimer = 0;
 	}
-	forceUpdate = false;
 }
 
 bool Entity::canUpdate()
 {
-	return frameTimer == maxFrameTime || forceUpdate;
+	return frameTimer == maxFrameTime;
 }
 
-void Entity::forceToUpdate()
+void Entity::OnSyncSprite()
 {
-	forceUpdate = true;
+	if (usageOfExtraAnimation){
+		extraAnim[currentExtraAnimation]->getCurrentSpritePointer()->setPosition(screenX, screenY);
+	}else{
+		dirAnim[dir].getCurrentSpritePointer()->setPosition((float)screenX, (float)screenY);
+	}
 }

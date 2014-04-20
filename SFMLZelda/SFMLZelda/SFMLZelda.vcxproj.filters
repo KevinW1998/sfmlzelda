@@ -100,6 +100,9 @@
     <None Include="images\Zelda_Links_Awakening_SpriteSheet.psd">
       <Filter>Resource Files\images</Filter>
     </None>
+    <None Include="images\Zelda_Links_Awakening_SpriteSheet-Correction.psd">
+      <Filter>Resource Files\images</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Text Include="TODO.txt" />

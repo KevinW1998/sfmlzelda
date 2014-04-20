@@ -56,11 +56,9 @@ void Game::CheckKeyState()
 	if (SPACE && !isSpacePressed){
 		//Press Space
 		isSpacePressed = true;
-		sampleLink->forceToUpdate();
 	}else if(!SPACE && isSpacePressed){
 		//Release Space
 		isSpacePressed = false;
-		sampleLink->forceToUpdate();
 	}
 
 	if (!(RIGHT && LEFT)){
@@ -175,5 +173,7 @@ void Game::CheckKeyState()
 	}else{
 		sampleLink->setExtraAnimationActive(false);
 	}
+
+	sampleLink->OnSyncSprite();
 }
 

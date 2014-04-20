@@ -186,6 +186,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="images\Zelda_Links_Awakening_SpriteSheet-Correction.psd" />
     <None Include="images\Zelda_Links_Awakening_SpriteSheet.psd" />
   </ItemGroup>
   <ItemGroup>

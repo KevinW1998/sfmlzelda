@@ -22,6 +22,7 @@ public:
 	virtual void OnWalkRight();
 	virtual void OnWalkDown();
 	virtual void OnWalkLeft();
+	virtual void OnSyncSprite();
 
 	enum Dir{
 		DIR_NORTH = 0,
@@ -49,7 +50,6 @@ public:
 
 	//If a methode want to check before sending a update call....
 	bool canUpdate();
-	void forceToUpdate();
 
 protected:
 	SpriteAnimation* dirAnim;
@@ -60,7 +60,6 @@ protected:
 	//Frame Options
 	int maxFrameTime;
 	int frameTimer;
-	bool forceUpdate;
 
 	int dir;
 	bool animActive;

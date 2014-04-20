@@ -4,7 +4,7 @@
 
 void Link::init()
 {
-	std::string spriteSheetPath = "images/Zelda_Links_Awakening_SpriteSheet-correction.psd";
+	std::string spriteSheetPath = "images/Zelda_Links_Awakening_SpriteSheet-Correction.psd";
 	sf::Image spriteSheetImg;
 	spriteSheetImg.loadFromFile(spriteSheetPath);
 
@@ -157,19 +157,7 @@ void Link::OnUpdate(){
 	if (canUpdate()){
 		if (usageOfExtraAnimation){
 			extraAnim[currentExtraAnimation]->nextFrame();
-			if (currentExtraAnimation == ANIM_SWORDHIT_EAST){
-				extraAnim[currentExtraAnimation]->getCurrentSpritePointer()->setPosition(screenX, screenY - 15);
-			}
-			else if (currentExtraAnimation == ANIM_SWORDHIT_WEST){
-				extraAnim[currentExtraAnimation]->getCurrentSpritePointer()->setPosition(screenX - 15, screenY - 15);
-				if (extraAnim[currentExtraAnimation]->getCurrentFrame() == 0){
-					extraAnim[currentExtraAnimation]->getCurrentSpritePointer()->setPosition(screenX - 4, screenY - 15);
-				}
-				else if (extraAnim[currentExtraAnimation]->getCurrentFrame() == 2){
-					extraAnim[currentExtraAnimation]->getCurrentSpritePointer()->setPosition(screenX - 18, screenY - 15);
-				}
-			}
-
+			OnSyncSprite();
 		}else{
 			Entity::OnUpdate();
 		}
@@ -215,6 +203,27 @@ void Link::OnWalkLeft()
 	if (canUpdate()){
 		screenX -= 3;
 	}
+}
+
+void Link::OnSyncSprite()
+{
+	if (usageOfExtraAnimation){
+		if (currentExtraAnimation == ANIM_SWORDHIT_EAST){
+			extraAnim[currentExtraAnimation]->getCurrentSpritePointer()->setPosition(screenX, screenY - 15);
+		}
+		else if (currentExtraAnimation == ANIM_SWORDHIT_WEST){
+			extraAnim[currentExtraAnimation]->getCurrentSpritePointer()->setPosition(screenX - 15, screenY - 15);
+			if (extraAnim[currentExtraAnimation]->getCurrentFrame() == 0){
+				extraAnim[currentExtraAnimation]->getCurrentSpritePointer()->setPosition(screenX - 4, screenY - 15);
+			}
+			else if (extraAnim[currentExtraAnimation]->getCurrentFrame() == 2){
+				extraAnim[currentExtraAnimation]->getCurrentSpritePointer()->setPosition(screenX - 18, screenY - 15);
+			}
+		}
+	}else{
+		Entity::OnSyncSprite();
+	}
+	
 }
 
 
