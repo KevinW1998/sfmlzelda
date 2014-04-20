@@ -193,6 +193,9 @@ int Entity::getCurrentExtraAnimation(){
 }
 
 void Entity::setCurrentExtraAnimation(int extraAnim){
+	if (currentExtraAnimation != extraAnim || !usageOfExtraAnimation){
+		resetCurrentExtraAnimation();
+	}
 	currentExtraAnimation = extraAnim;
 }
 
@@ -235,4 +238,9 @@ void Entity::OnSyncSprite()
 sf::Vector2i Entity::getPlayerPosition()
 {
 	return sf::Vector2i(screenX, screenY);
+}
+
+void Entity::resetCurrentExtraAnimation()
+{
+	extraAnim[currentExtraAnimation]->setCurrentFrame(0);
 }

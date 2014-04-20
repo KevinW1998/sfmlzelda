@@ -41,6 +41,7 @@ public:
 
 	int getCurrentExtraAnimation();
 	void setCurrentExtraAnimation(int extraAnim);
+	void resetCurrentExtraAnimation();
 
 	int getMaxFrameTime();
 	void setMaxFrameTime(int framesUntilSwitch);
