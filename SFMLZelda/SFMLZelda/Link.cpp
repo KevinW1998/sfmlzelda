@@ -179,28 +179,28 @@ int Link::getType()
 
 void Link::OnWalkUp()
 {
-	if (canUpdate()){
+	if (canUpdate() && !usingNonMoveableAnimation()){
 		screenY -= 3;
 	}
 }
 
 void Link::OnWalkRight()
 {
-	if (canUpdate()){
+	if (canUpdate() && !usingNonMoveableAnimation()){
 		screenX += 3;
 	}
 }
 
 void Link::OnWalkDown()
 {
-	if (canUpdate()){
+	if (canUpdate() && !usingNonMoveableAnimation()){
 		screenY += 3;
 	}
 }
 
 void Link::OnWalkLeft()
 {
-	if (canUpdate()){
+	if (canUpdate() && !usingNonMoveableAnimation()){
 		screenX -= 3;
 	}
 }
@@ -224,6 +224,19 @@ void Link::OnSyncSprite()
 		Entity::OnSyncSprite();
 	}
 	
+}
+
+bool Link::usingNonMoveableAnimation()
+{
+	if (usageOfExtraAnimation){
+		if (currentExtraAnimation == ANIM_SWORDHIT_NORTH ||
+			currentExtraAnimation == ANIM_SWORDHIT_EAST ||
+			currentExtraAnimation == ANIM_SWORDHIT_SOUTH ||
+			currentExtraAnimation == ANIM_SWORDHIT_WEST){
+			return true;
+		}
+	}
+	return false;
 }
 
 

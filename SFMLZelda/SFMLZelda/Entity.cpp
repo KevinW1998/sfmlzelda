@@ -231,3 +231,8 @@ void Entity::OnSyncSprite()
 		dirAnim[dir].getCurrentSpritePointer()->setPosition((float)screenX, (float)screenY);
 	}
 }
+
+sf::Vector2i Entity::getPlayerPosition()
+{
+	return sf::Vector2i(screenX, screenY);
+}

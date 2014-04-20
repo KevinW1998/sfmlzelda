@@ -14,7 +14,9 @@ public:
 
 	enum extraAnimList {
 		ANIM_SWORDHIT_EAST = 0,
-		ANIM_SWORDHIT_WEST
+		ANIM_SWORDHIT_WEST,
+		ANIM_SWORDHIT_NORTH,
+		ANIM_SWORDHIT_SOUTH
 	};
 
 	virtual int getType();
@@ -28,5 +30,7 @@ public:
 
 private:
 	void init();
+
+	bool usingNonMoveableAnimation();
 };
 

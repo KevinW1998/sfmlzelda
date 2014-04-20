@@ -51,6 +51,8 @@ public:
 	//If a methode want to check before sending a update call....
 	bool canUpdate();
 
+	sf::Vector2i getPlayerPosition();
+
 protected:
 	SpriteAnimation* dirAnim;
 	std::vector<SpriteAnimation*> extraAnim;
