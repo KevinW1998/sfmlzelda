@@ -172,6 +172,9 @@ void Game::CheckKeyState()
 		}else if (sampleLink->getDir() == Link::DIR_SOUTH){
 			sampleLink->setCurrentExtraAnimation(Link::ANIM_SWORDHIT_SOUTH);
 			sampleLink->setExtraAnimationActive(true);
+		}else if (sampleLink->getDir() == Link::DIR_NORTH){
+			sampleLink->setCurrentExtraAnimation(Link::ANIM_SWORDHIT_NORTH);
+			sampleLink->setExtraAnimationActive(true);
 		}
 	}else{
 		sampleLink->setExtraAnimationActive(false);

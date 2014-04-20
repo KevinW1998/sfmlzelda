@@ -76,6 +76,18 @@ void Link::init()
 	sf::Texture southHitText3;
 	southHitText3.loadFromImage(spriteSheetImg, sf::IntRect(102, 145, 15, 32));
 
+	//Link North Hit Texture 1
+	sf::Texture northHitText1;
+	northHitText1.loadFromImage(spriteSheetImg, sf::IntRect(130, 145, 15, 32));
+
+	//Link North Hit Texture 2
+	sf::Texture northHitText2;
+	northHitText2.loadFromImage(spriteSheetImg, sf::IntRect(153, 145, 26, 32));
+
+	//Link North Hit Texture 3
+	sf::Texture northHitText3;
+	northHitText3.loadFromImage(spriteSheetImg, sf::IntRect(183, 145, 30, 32));
+
 
 	textureBuf.push_back(northBaseText);
 	textureBuf.push_back(northWalkText);
@@ -98,6 +110,10 @@ void Link::init()
 	textureBuf.push_back(southHitText2);
 	textureBuf.push_back(southHitText3);
 
+	textureBuf.push_back(northHitText1);
+	textureBuf.push_back(northHitText2);
+	textureBuf.push_back(northHitText3);
+
 	sf::Sprite northBaseSpr(textureBuf[0]);
 	sf::Sprite northWalkSpr(textureBuf[1]);
 	sf::Sprite eastBaseSpr(textureBuf[2]);
@@ -118,6 +134,10 @@ void Link::init()
 	sf::Sprite southHit1Spr(textureBuf[14]);
 	sf::Sprite southHit2Spr(textureBuf[15]);
 	sf::Sprite southHit3Spr(textureBuf[16]);
+
+	sf::Sprite northHit1Spr(textureBuf[17]);
+	sf::Sprite northHit2Spr(textureBuf[18]);
+	sf::Sprite northHit3Spr(textureBuf[19]);
 
 
 	northBaseSpr.setPosition((float)screenX, (float)screenY);
@@ -156,6 +176,12 @@ void Link::init()
 	southHit->addSprite(southHit2Spr);
 	southHit->addSprite(southHit3Spr);
 	extraAnim.push_back(southHit);
+
+	SpriteAnimation* northHit = new SpriteAnimation();
+	northHit->addSprite(northHit1Spr);
+	northHit->addSprite(northHit2Spr);
+	northHit->addSprite(northHit3Spr);
+	extraAnim.push_back(northHit);
 }
 
 Link::Link() : Entity(false)
@@ -253,6 +279,9 @@ void Link::OnSyncSprite()
 			else if (extraAnim[currentExtraAnimation]->getCurrentFrame() == 1){
 				extraAnim[currentExtraAnimation]->getCurrentSpritePointer()->setPosition(screenX - 11, screenY);
 			}
+		}
+		else if (currentExtraAnimation == ANIM_SWORDHIT_NORTH){
+			extraAnim[currentExtraAnimation]->getCurrentSpritePointer()->setPosition(screenX, screenY - 15);
 		}
 	}else{
 		Entity::OnSyncSprite();
