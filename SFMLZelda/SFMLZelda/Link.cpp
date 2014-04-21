@@ -188,14 +188,14 @@ Link::Link() : Entity(false)
 {
 	//Init
 	init();
-	maxFrameTime = 5;
+	maxFrameTime = SFML_LINK_LOOPSUNTILUPDATE;
 }
 
 Link::Link(int x, int y) : Entity(false,x,y)
 {
 	//Init
 	init();
-	maxFrameTime = 5;
+	maxFrameTime = SFML_LINK_LOOPSUNTILUPDATE;
 }
 
 void Link::OnRender(sf::RenderWindow* renderer){
@@ -233,28 +233,28 @@ int Link::getType()
 void Link::OnWalkUp()
 {
 	if (canUpdate() && !usingNonMoveableAnimation()){
-		screenY -= 3;
+		screenY -= SFML_LINK_MOVEMENT_PIXELPERUPDATE;
 	}
 }
 
 void Link::OnWalkRight()
 {
 	if (canUpdate() && !usingNonMoveableAnimation()){
-		screenX += 3;
+		screenX += SFML_LINK_MOVEMENT_PIXELPERUPDATE;
 	}
 }
 
 void Link::OnWalkDown()
 {
 	if (canUpdate() && !usingNonMoveableAnimation()){
-		screenY += 3;
+		screenY += SFML_LINK_MOVEMENT_PIXELPERUPDATE;
 	}
 }
 
 void Link::OnWalkLeft()
 {
 	if (canUpdate() && !usingNonMoveableAnimation()){
-		screenX -= 3;
+		screenX -= SFML_LINK_MOVEMENT_PIXELPERUPDATE;
 	}
 }
 

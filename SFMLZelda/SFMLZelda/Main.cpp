@@ -9,7 +9,6 @@
 
 #include "stdafx.h"
 #include "Game.h"
-#include "settings.h"
 
 int main()
 {

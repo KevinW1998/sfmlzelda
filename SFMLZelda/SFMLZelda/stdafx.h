@@ -24,4 +24,7 @@
 // SFML
 #include <SFML/Graphics.hpp>
 
+// Settings
+#include "settings.h"
+
 // TODO: Hier auf zusätzliche Header, die das Programm erfordert, verweisen.
