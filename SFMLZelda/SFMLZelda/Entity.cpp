@@ -237,7 +237,7 @@ void Entity::OnSyncSprite()
 
 sf::Vector2i Entity::getPlayerPosition()
 {
-	return sf::Vector2i(screenX, screenY);
+	return sf::Vector2i(mapPos.x, mapPos.y);
 }
 
 void Entity::resetCurrentExtraAnimation()

@@ -69,6 +69,9 @@ protected:
 
 	std::vector<sf::Texture> textureBuf;
 
+	//Map Position
+	sf::Vector2f mapPos;
+
 private:
 	void init();
 
