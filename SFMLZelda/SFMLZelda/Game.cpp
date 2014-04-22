@@ -20,6 +20,7 @@ Game::Game(sf::RenderWindow* rWindow) :
 	m_renderer = new GameRenderer(rWindow);
 	sampleEntity = new Entity(true,100,100);
 	sampleLink = new Link(200, 200);
+	m_fpscounter = new FPSCounter();
 }
 
 
@@ -38,6 +39,7 @@ void Game::RunLoop()
 
 void Game::Update()
 {
+	m_fpscounter->OnUpdate();
 	sampleLink->beginUpdate();
 	CheckKeyState();
 	sampleEntity->OnUpdate();
@@ -49,6 +51,9 @@ void Game::Render()
 {
 	//m_renderer->RenderDrawableObject(sampleEntity);
 	m_renderer->RenderDrawableObject(sampleLink);
+#if SFML_FPSCOUNTER == 1
+	m_renderer->RenderDrawableObject(m_fpscounter);
+#endif
 }
 
 void Game::CheckKeyState()

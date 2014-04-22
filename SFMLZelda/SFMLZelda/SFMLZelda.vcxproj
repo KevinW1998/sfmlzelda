@@ -94,7 +94,8 @@
       <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
-      <Command>xcopy "$(ProjectDir)images" "$(OutDir)images" /s /i /y</Command>
+      <Command>xcopy "$(ProjectDir)images" "$(OutDir)images" /s /i /y
+xcopy "$(ProjectDir)fonts" "$(OutDir)fonts" /s /i /y</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Static|Win32'">
@@ -114,7 +115,8 @@
       <AdditionalLibraryDirectories>C:\SFML\SFML-2.1\extlibs\libs-msvc\x86;C:\SFML\SFML-2.1\Staitc Libs\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PreBuildEvent>
-      <Command>xcopy "$(ProjectDir)images" "$(OutDir)images" /s /i /y</Command>
+      <Command>xcopy "$(ProjectDir)images" "$(OutDir)images" /s /i /y
+xcopy "$(ProjectDir)fonts" "$(OutDir)fonts" /s /i /y</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -137,7 +139,8 @@
       <AdditionalLibraryDirectories>C:\SFML\SFML-2.1\Libs\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PreBuildEvent>
-      <Command>xcopy "$(ProjectDir)images" "$(OutDir)images" /s /i /y</Command>
+      <Command>xcopy "$(ProjectDir)images" "$(OutDir)images" /s /i /y
+xcopy "$(ProjectDir)fonts" "$(OutDir)fonts" /s /i /y</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release Static|Win32'">
@@ -161,12 +164,14 @@
       <AdditionalLibraryDirectories>C:\SFML\SFML-2.1\extlibs\libs-msvc\x86;C:\SFML\SFML-2.1\Staitc Libs\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PreBuildEvent>
-      <Command>xcopy "$(ProjectDir)images" "$(OutDir)images" /s /i /y</Command>
+      <Command>xcopy "$(ProjectDir)images" "$(OutDir)images" /s /i /y
+xcopy "$(ProjectDir)fonts" "$(OutDir)fonts" /s /i /y</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DrawableObject.cpp" />
     <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="FPSCounter.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameRenderer.cpp" />
     <ClCompile Include="Link.cpp" />
@@ -177,6 +182,7 @@
   <ItemGroup>
     <ClInclude Include="DrawableObject.h" />
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="FPSCounter.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameRenderer.h" />
     <ClInclude Include="Link.h" />
@@ -191,6 +197,9 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="TODO.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="fonts\hobo.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

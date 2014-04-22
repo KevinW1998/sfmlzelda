@@ -40,6 +40,9 @@
     <Filter Include="Resource Files\images">
       <UniqueIdentifier>{bf23279f-d49f-46c1-8da8-ef212d438190}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\fonts">
+      <UniqueIdentifier>{08c2efd0-9a25-4aa3-b178-061bd05c16d3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -65,6 +68,9 @@
     </ClCompile>
     <ClCompile Include="Link.cpp">
       <Filter>Source Files\Game\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="FPSCounter.cpp">
+      <Filter>Source Files\Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -95,6 +101,9 @@
     <ClInclude Include="settings.h">
       <Filter>Header Files\Main</Filter>
     </ClInclude>
+    <ClInclude Include="FPSCounter.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="images\Zelda_Links_Awakening_SpriteSheet.psd">
@@ -106,5 +115,10 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="TODO.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="fonts\hobo.ttf">
+      <Filter>Resource Files\fonts</Filter>
+    </Font>
   </ItemGroup>
 </Project>

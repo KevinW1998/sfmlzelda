@@ -3,6 +3,7 @@
 #include "stdafx.h"
 #include "GameRenderer.h"
 #include "Link.h"
+#include "FPSCounter.h"
 
 class Game
 {
@@ -28,6 +29,8 @@ private:
 
 	Entity* sampleEntity;
 	Link* sampleLink;
+
+	FPSCounter* m_fpscounter;
 
 };
 
