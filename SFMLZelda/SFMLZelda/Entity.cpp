@@ -73,7 +73,8 @@ Entity::Entity(bool genBaseAnimationSprite) : DrawableObject(),
 	usageOfExtraAnimation(false),
 	currentExtraAnimation(0),
 	maxFrameTime(1),
-	frameTimer(0)
+	frameTimer(0),
+	speed(1)
 {
 	if (genBaseAnimationSprite){
 		init();
@@ -89,7 +90,8 @@ Entity::Entity(bool genBaseAnimationSprite, int x, int y) : DrawableObject(x, y)
 	usageOfExtraAnimation(false),
 	currentExtraAnimation(0),
 	maxFrameTime(1),
-	frameTimer(0)
+	frameTimer(0),
+	speed(1)
 {
 	if (genBaseAnimationSprite){
 		init();
@@ -154,28 +156,28 @@ void Entity::setAnimActive(bool isActive)
 void Entity::OnWalkUp()
 {
 	if (canUpdate()){
-		screenY--;
+		screenY -= speed;
 	}
 }
 
 void Entity::OnWalkRight()
 {
 	if (canUpdate()){
-		screenX++;
+		screenX += speed;
 	}
 }
 
 void Entity::OnWalkDown()
 {
 	if (canUpdate()){
-		screenY++;
+		screenY += speed;
 	}
 }
 
 void Entity::OnWalkLeft()
 {
 	if (canUpdate()){
-		screenX--;
+		screenX -= speed;
 	}
 }
 
@@ -243,4 +245,14 @@ sf::Vector2i Entity::getPlayerPosition()
 void Entity::resetCurrentExtraAnimation()
 {
 	extraAnim[currentExtraAnimation]->setCurrentFrame(0);
+}
+
+int Entity::getSpeed()
+{
+	return speed;
+}
+
+void Entity::setSpeed(int speed)
+{
+	this->speed = speed;
 }

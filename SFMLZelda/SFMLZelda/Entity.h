@@ -52,6 +52,10 @@ public:
 	//If a methode want to check before sending a update call....
 	bool canUpdate();
 
+	int getSpeed();
+	void setSpeed(int speed);
+
+
 	sf::Vector2i getPlayerPosition();
 
 protected:
@@ -71,6 +75,9 @@ protected:
 
 	//Map Position
 	sf::Vector2f mapPos;
+
+	//Speed
+	int speed;
 
 private:
 	void init();
