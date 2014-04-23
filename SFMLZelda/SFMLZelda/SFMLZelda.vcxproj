@@ -169,6 +169,7 @@ xcopy "$(ProjectDir)fonts" "$(OutDir)fonts" /s /i /y</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Controllable.cpp" />
     <ClCompile Include="DrawableObject.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="FPSCounter.cpp" />
@@ -180,6 +181,7 @@ xcopy "$(ProjectDir)fonts" "$(OutDir)fonts" /s /i /y</Command>
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Controllable.h" />
     <ClInclude Include="DrawableObject.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="FPSCounter.h" />
