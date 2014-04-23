@@ -7,15 +7,16 @@ public:
 	Controllable();
 	~Controllable();
 
+	//non virutal functions
+	void _OnKeyPressing(sf::Keyboard key);
+	void _OnKeyDown(sf::Keyboard key);
+	void _OnKeyUp(sf::Keyboard key);
+
 	virtual void OnKeyPressing(sf::Keyboard key);
 	virtual void OnKeyDown(sf::Keyboard key);
 	virtual void OnKeyUp(sf::Keyboard key);
 
-private:
-	bool keySpacePressed;
-	bool keyUpPressed;
-	bool keyDownPressed;
-	bool keyRightPressed;
-	bool keyLeftPressed;
+	//common key functions here
+
 };
 

@@ -26,3 +26,18 @@ void Controllable::OnKeyUp(sf::Keyboard key)
 {
 
 }
+
+void Controllable::_OnKeyPressing(sf::Keyboard key)
+{
+
+}
+
+void Controllable::_OnKeyDown(sf::Keyboard key)
+{
+
+}
+
+void Controllable::_OnKeyUp(sf::Keyboard key)
+{
+
+}

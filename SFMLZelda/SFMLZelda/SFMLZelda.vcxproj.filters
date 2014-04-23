@@ -43,6 +43,12 @@
     <Filter Include="Resource Files\fonts">
       <UniqueIdentifier>{08c2efd0-9a25-4aa3-b178-061bd05c16d3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Game\Input">
+      <UniqueIdentifier>{e1cb2740-9a6f-408b-aeed-e3f21d21fdad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game\Input">
+      <UniqueIdentifier>{edcb1fcf-5504-4ab1-860a-7c1de4dc8d7e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -73,10 +79,10 @@
       <Filter>Source Files\Game</Filter>
     </ClCompile>
     <ClCompile Include="Controllable.cpp">
-      <Filter>Source Files\Game</Filter>
+      <Filter>Source Files\Game\Input</Filter>
     </ClCompile>
     <ClCompile Include="ImputController.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Game\Input</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -111,10 +117,10 @@
       <Filter>Header Files\Game</Filter>
     </ClInclude>
     <ClInclude Include="Controllable.h">
-      <Filter>Header Files\Game</Filter>
+      <Filter>Header Files\Game\Input</Filter>
     </ClInclude>
     <ClInclude Include="ImputController.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Game\Input</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
