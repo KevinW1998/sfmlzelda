@@ -11,10 +11,6 @@ Controllable::~Controllable()
 {
 }
 
-void Controllable::checkKeyState()
-{
-
-}
 
 void Controllable::OnKeyPressing(sf::Keyboard key)
 {
