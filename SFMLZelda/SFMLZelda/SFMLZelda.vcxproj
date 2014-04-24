@@ -175,6 +175,7 @@ xcopy "$(ProjectDir)fonts" "$(OutDir)fonts" /s /i /y</Command>
     <ClCompile Include="FPSCounter.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameRenderer.cpp" />
+    <ClCompile Include="ImputConfiguration.cpp" />
     <ClCompile Include="ImputController.cpp" />
     <ClCompile Include="Link.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -188,6 +189,7 @@ xcopy "$(ProjectDir)fonts" "$(OutDir)fonts" /s /i /y</Command>
     <ClInclude Include="FPSCounter.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameRenderer.h" />
+    <ClInclude Include="ImputConfiguration.h" />
     <ClInclude Include="ImputController.h" />
     <ClInclude Include="Link.h" />
     <ClInclude Include="settings.h" />

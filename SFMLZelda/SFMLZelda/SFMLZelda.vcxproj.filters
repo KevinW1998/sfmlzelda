@@ -84,6 +84,9 @@
     <ClCompile Include="ImputController.cpp">
       <Filter>Source Files\Game\Input</Filter>
     </ClCompile>
+    <ClCompile Include="ImputConfiguration.cpp">
+      <Filter>Source Files\Game\Input</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -120,6 +123,9 @@
       <Filter>Header Files\Game\Input</Filter>
     </ClInclude>
     <ClInclude Include="ImputController.h">
+      <Filter>Header Files\Game\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="ImputConfiguration.h">
       <Filter>Header Files\Game\Input</Filter>
     </ClInclude>
   </ItemGroup>
