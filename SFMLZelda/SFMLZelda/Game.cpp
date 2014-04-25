@@ -21,6 +21,8 @@ Game::Game(sf::RenderWindow* rWindow) :
 	sampleEntity = new Entity(true,100,100);
 	sampleLink = new Link(200, 200);
 	m_fpscounter = new FPSCounter();
+	controller = new ImputController();
+	controller->addControllable(sampleLink);
 }
 
 
@@ -42,6 +44,7 @@ void Game::Update()
 	m_fpscounter->OnUpdate();
 	sampleLink->beginUpdate();
 	CheckKeyState();
+	controller->checkKeyState();
 	sampleEntity->OnUpdate();
 	sampleLink->OnUpdate();
 	sampleLink->endUpdate();

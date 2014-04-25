@@ -182,9 +182,15 @@ void Link::init()
 	northHit->addSprite(northHit2Spr);
 	northHit->addSprite(northHit3Spr);
 	extraAnim.push_back(northHit);
+
+	keyWatchlist.push_back((int)sf::Keyboard::Up);
+	keyWatchlist.push_back((int)sf::Keyboard::Down);
+	keyWatchlist.push_back((int)sf::Keyboard::Right);
+	keyWatchlist.push_back((int)sf::Keyboard::Left);
+	keyWatchlist.push_back((int)sf::Keyboard::Space);
 }
 
-Link::Link() : Entity(false)
+Link::Link() : Entity(false), Controllable()
 {
 	//Init
 	init();
@@ -192,7 +198,7 @@ Link::Link() : Entity(false)
 	speed = SFML_LINK_MOVEMENT_PIXELPERUPDATE;
 }
 
-Link::Link(int x, int y) : Entity(false,x,y)
+Link::Link(int x, int y) : Entity(false, x, y), Controllable()
 {
 	//Init
 	init();
@@ -216,9 +222,9 @@ void Link::OnUpdate(){
 		}else{
 			Entity::OnUpdate();
 		}
-		std::cout << "Reset" << std::endl;
+		//std::cout << "Reset" << std::endl;
 	}else{
-		std::cout << "Add" << std::endl;
+		//std::cout << "Add" << std::endl;
 	}
 	
 }
@@ -302,6 +308,23 @@ bool Link::usingNonMoveableAnimation()
 		}
 	}
 	return false;
+}
+
+
+
+void Link::OnKeyPressing(sf::Keyboard::Key key)
+{
+	std::cout << "PRESSING!" << std::endl;
+}
+
+void Link::OnKeyDown(sf::Keyboard::Key key)
+{
+	std::cout << "DOWN!" << std::endl;
+}
+
+void Link::OnKeyUp(sf::Keyboard::Key key)
+{
+	std::cout << "UP!" << std::endl;
 }
 
 

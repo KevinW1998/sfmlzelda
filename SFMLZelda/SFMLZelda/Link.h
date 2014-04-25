@@ -1,11 +1,13 @@
 #pragma once
 #include "stdafx.h"
 #include "Entity.h"
+#include "Controllable.h"
 
 #define DOTYPE_LINK 2
 
 class Link :
-	public Entity
+	public Entity,
+	public Controllable
 {
 public:
 	Link();
@@ -27,6 +29,10 @@ public:
 	virtual void OnWalkDown();
 	virtual void OnWalkLeft();
 	virtual void OnSyncSprite();
+
+	virtual void OnKeyPressing(sf::Keyboard::Key key);
+	virtual void OnKeyDown(sf::Keyboard::Key key);
+	virtual void OnKeyUp(sf::Keyboard::Key key);
 
 private:
 	void init();

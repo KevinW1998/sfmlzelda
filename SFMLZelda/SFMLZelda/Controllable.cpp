@@ -14,33 +14,27 @@ Controllable::~Controllable()
 
 
 void Controllable::OnKeyPressing(sf::Keyboard::Key key)
-{
-
-}
+{}
 
 void Controllable::OnKeyDown(sf::Keyboard::Key key)
-{
-
-}
+{}
 
 void Controllable::OnKeyUp(sf::Keyboard::Key key)
-{
-
-}
+{}
 
 void Controllable::_OnKeyPressing(sf::Keyboard::Key key)
 {
-
+	OnKeyPressing(key);
 }
 
 void Controllable::_OnKeyDown(sf::Keyboard::Key key)
 {
-
+	OnKeyDown(key);
 }
 
 void Controllable::_OnKeyUp(sf::Keyboard::Key key)
 {
-
+	OnKeyUp(key);
 }
 
 std::vector<int> Controllable::getWatchlist()

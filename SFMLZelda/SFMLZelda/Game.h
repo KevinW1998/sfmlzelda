@@ -4,6 +4,7 @@
 #include "GameRenderer.h"
 #include "Link.h"
 #include "FPSCounter.h"
+#include "ImputController.h"
 
 class Game
 {
@@ -29,6 +30,7 @@ private:
 
 	Entity* sampleEntity;
 	Link* sampleLink;
+	ImputController* controller;
 
 	FPSCounter* m_fpscounter;
 
