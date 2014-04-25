@@ -1,6 +1,7 @@
 #pragma once
 #include "stdafx.h"
-class Controllable
+#include "ImputConfiguration.h"
+class Controllable : public ImputConfiguration
 {
 public:
 	
@@ -8,15 +9,18 @@ public:
 	~Controllable();
 
 	//non virutal functions
-	void _OnKeyPressing(sf::Keyboard key);
-	void _OnKeyDown(sf::Keyboard key);
-	void _OnKeyUp(sf::Keyboard key);
+	void _OnKeyPressing(sf::Keyboard::Key key);
+	void _OnKeyDown(sf::Keyboard::Key key);
+	void _OnKeyUp(sf::Keyboard::Key key);
 
-	virtual void OnKeyPressing(sf::Keyboard key);
-	virtual void OnKeyDown(sf::Keyboard key);
-	virtual void OnKeyUp(sf::Keyboard key);
+	virtual void OnKeyPressing(sf::Keyboard::Key key);
+	virtual void OnKeyDown(sf::Keyboard::Key key);
+	virtual void OnKeyUp(sf::Keyboard::Key key);
 
 	//common key functions here
+	std::vector<int> getWatchlist();
 
+protected:
+	std::vector<int> keyWatchlist;
 };
 

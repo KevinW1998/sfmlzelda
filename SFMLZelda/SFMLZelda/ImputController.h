@@ -9,9 +9,10 @@ public:
 	~ImputController();
 
 	void checkKeyState();
+	
 
 private:
-	bool keyPressed[101];
+	bool keyPressed[sf::Keyboard::KeyCount];
 	std::vector<Controllable> controllables;
 
 };
