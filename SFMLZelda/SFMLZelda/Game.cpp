@@ -170,7 +170,7 @@ void Game::CheckKeyState()
 			sampleLink->setDir(Entity::DIR_EAST);
 		}
 	}
-	if (isSpacePressed){
+	/*if (isSpacePressed){
 		if (sampleLink->getDir() == Link::DIR_EAST){
 			sampleLink->setCurrentExtraAnimation(Link::ANIM_SWORDHIT_EAST);
 			sampleLink->setExtraAnimationActive(true);
@@ -186,7 +186,7 @@ void Game::CheckKeyState()
 		}
 	}else{
 		sampleLink->setExtraAnimationActive(false);
-	}
+	}*/
 
 	sampleLink->OnSyncSprite();
 }

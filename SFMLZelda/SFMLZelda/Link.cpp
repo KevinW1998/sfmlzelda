@@ -315,6 +315,21 @@ bool Link::usingNonMoveableAnimation()
 void Link::OnKeyPressing(sf::Keyboard::Key key)
 {
 	std::cout << "PRESSING!" << std::endl;
+	if (key == sf::Keyboard::Space){
+		if (getDir() == Link::DIR_EAST){
+			setCurrentExtraAnimation(Link::ANIM_SWORDHIT_EAST);
+			setExtraAnimationActive(true);
+		}else if (getDir() == Link::DIR_WEST){
+			setCurrentExtraAnimation(Link::ANIM_SWORDHIT_WEST);
+			setExtraAnimationActive(true);
+		}else if (getDir() == Link::DIR_SOUTH){
+			setCurrentExtraAnimation(Link::ANIM_SWORDHIT_SOUTH);
+			setExtraAnimationActive(true);
+		}else if (getDir() == Link::DIR_NORTH){
+			setCurrentExtraAnimation(Link::ANIM_SWORDHIT_NORTH);
+			setExtraAnimationActive(true);
+		}
+	}
 }
 
 void Link::OnKeyDown(sf::Keyboard::Key key)
@@ -325,6 +340,9 @@ void Link::OnKeyDown(sf::Keyboard::Key key)
 void Link::OnKeyUp(sf::Keyboard::Key key)
 {
 	std::cout << "UP!" << std::endl;
+	if (key == sf::Keyboard::Space){
+		setExtraAnimationActive(false);
+	}
 }
 
 

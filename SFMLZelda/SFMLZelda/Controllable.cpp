@@ -42,3 +42,8 @@ std::vector<int> Controllable::getWatchlist()
 	return keyWatchlist;
 }
 
+bool Controllable::isKeyPressed(sf::Keyboard::Key key)
+{
+	sf::Keyboard::isKeyPressed(key);
+}
+

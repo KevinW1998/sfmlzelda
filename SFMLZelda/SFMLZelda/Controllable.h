@@ -17,6 +17,8 @@ public:
 	virtual void OnKeyDown(sf::Keyboard::Key key);
 	virtual void OnKeyUp(sf::Keyboard::Key key);
 
+	bool isKeyPressed(sf::Keyboard::Key key);
+
 	//common key functions here
 	std::vector<int> getWatchlist();
 
